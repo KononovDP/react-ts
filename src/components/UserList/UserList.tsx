@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, useMemo } from 'react';
 import { useFetchAllUsersQuery } from 'store/usersService';
 import { useAppSelector } from 'hooks/redux-hooks';
 import { IUserItem } from 'interfaces';
@@ -11,25 +11,26 @@ const UserList: FC = () => {
   const { data: users = [], isLoading, error } = useFetchAllUsersQuery(100);
   const sortedValue = useAppSelector((state) => state.users.sortedValue);
   const filteredValue = useAppSelector((state) => state.users.filteredValue);
-  const [sortedUsers, setSortedUsers] = useState<IUserItem[]>(users);
 
-  useEffect(() => {
-    let sortedArray = [...users].sort((a: IUserItem, b: IUserItem): any => {
-      if (sortedValue === 'salary') {
-        return a.salary > b.salary ? 1 : -1;
-      } else if (sortedValue === 'experience') {
-        return a.experience > b.experience ? 1 : -1;
-      }
-    });
-
-    if (filteredValue && filteredValue !== 'all') {
-      sortedArray = sortedArray.filter((user) => user.gender === filteredValue);
-    } else if (filteredValue === 'all') {
-      sortedArray = sortedArray;
+  const sortedUsers = useMemo(() => {
+    if (sortedValue) {
+      return [...users].sort((a: IUserItem, b: IUserItem): any => {
+        if (sortedValue === 'salary') {
+          return a.salary > b.salary ? 1 : -1;
+        } else if (sortedValue === 'experience') {
+          return a.experience > b.experience ? 1 : -1;
+        }
+      });
     }
+    return users;
+  }, [users, sortedValue]);
 
-    setSortedUsers(sortedArray);
-  }, [users, sortedValue, filteredValue]);
+  const sortedAndFilteredUsers = useMemo(() => {
+    if (filteredValue && filteredValue !== 'all') {
+      return sortedUsers.filter((user) => user.gender === filteredValue);
+    }
+    return sortedUsers;
+  }, [sortedUsers, filteredValue]);
 
   return (
     <>
@@ -41,15 +42,15 @@ const UserList: FC = () => {
         <div className="content">
           {error && <h2>Someting went wrong</h2>}
           <h1>UserList</h1>
-          {sortedUsers.length ? (
+          {sortedAndFilteredUsers?.length ? (
             <>
               <div className="card__wrapper">
-                {sortedUsers.map((user: IUserItem) => (
+                {sortedAndFilteredUsers.map((user: IUserItem) => (
                   <UserCard key={user.id} user={user} />
                 ))}
               </div>
               <p style={{ marginTop: 40 }}>
-                Number of users: {sortedUsers.length}
+                Number of users: {sortedAndFilteredUsers.length}
               </p>
             </>
           ) : (

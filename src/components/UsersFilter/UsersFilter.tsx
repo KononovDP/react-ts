@@ -2,8 +2,14 @@ import { FC, ChangeEvent } from 'react';
 import { sortedBy, filterBy } from 'store/usersSlice';
 import { useAppSelector, useAppDispatch } from 'hooks/redux-hooks';
 
+interface RadioButton {
+  value: string;
+  text: string;
+}
+
 const UsersFilter: FC = () => {
   const sortedValue = useAppSelector((state) => state.users.sortedValue);
+  const filteredValue = useAppSelector((state) => state.users.filteredValue);
   const dispatch = useAppDispatch();
 
   const handleSort = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -13,6 +19,13 @@ const UsersFilter: FC = () => {
   const handleFilter = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(filterBy(e.target.value));
   };
+
+  const genderRadios: RadioButton[] = [
+    { value: 'male', text: 'Male' },
+    { value: 'female', text: 'Female' },
+    { value: 'other', text: 'Other' },
+    { value: 'all', text: 'All' },
+  ];
 
   return (
     <>
@@ -30,44 +43,21 @@ const UsersFilter: FC = () => {
           <option value="experience">Experience</option>
         </select>
       </div>
+
       <div className="box">
         <label className="form__label">Gender:</label>
-        <label className="form__label">
-          <input
-            type="radio"
-            value="male"
-            onChange={handleFilter}
-            name="gender"
-          />{' '}
-          Male
-        </label>
-        <label className="form__label">
-          <input
-            type="radio"
-            value="female"
-            onChange={handleFilter}
-            name="gender"
-          />{' '}
-          Female
-        </label>
-        <label className="form__label">
-          <input
-            type="radio"
-            value="other"
-            onChange={handleFilter}
-            name="gender"
-          />{' '}
-          Other
-        </label>
-        <label className="form__label">
-          <input
-            type="radio"
-            value="all"
-            onChange={handleFilter}
-            name="gender"
-          />{' '}
-          All
-        </label>
+        {genderRadios.map(({ value, text }) => (
+          <label className="form__label" key={value}>
+            <input
+              type="radio"
+              value={value}
+              onChange={handleFilter}
+              name="gender"
+              checked={value === filteredValue}
+            />
+            {text}
+          </label>
+        ))}
       </div>
     </>
   );
