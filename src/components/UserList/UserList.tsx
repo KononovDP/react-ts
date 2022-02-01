@@ -1,11 +1,11 @@
 import { FC, useState, useEffect } from 'react';
 import { useFetchAllUsersQuery } from 'store/usersService';
 import { useAppSelector } from 'hooks/redux-hooks';
-
 import { IUserItem } from 'interfaces';
+// Components
 import Loader from 'components/UI/Loader';
 import UserCard from 'components/UserCard';
-import UsersFilter from 'components/UsersFilter/UsersFilter';
+import UsersFilter from 'components/UsersFilter';
 
 const UserList: FC = () => {
   const { data: users = [], isLoading, error } = useFetchAllUsersQuery(100);

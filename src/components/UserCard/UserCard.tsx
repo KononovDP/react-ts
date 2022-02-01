@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { IUserItem } from 'interfaces';
+// Components
 import UserImage from 'components/UserImage';
 
 interface UserCardProps {

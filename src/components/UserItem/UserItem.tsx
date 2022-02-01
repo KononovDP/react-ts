@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAppSelector } from 'hooks/redux-hooks';
 import { useRemoveUserMutation } from 'store/usersService';
+import { useAppSelector } from 'hooks/redux-hooks';
 import { IUserItem } from 'interfaces';
 // Components
 import Loader from 'components/UI/Loader';

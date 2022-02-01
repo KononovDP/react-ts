@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetchUserQuery, useUpdateUserMutation } from 'store/usersService';
+// Components
 import UserForm from 'components/UserForm';
 import Loader from 'components/UI/Loader';
 

@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { IUserItem } from 'interfaces';
+// Assets
 import maleImage from 'assets/images/boy.png';
 import femaleImage from 'assets/images/girl.png';
 import userImage from 'assets/images/user.png';

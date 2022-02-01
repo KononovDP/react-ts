@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { IUserItem } from 'interfaces';
+// Components
 import Loader from 'components/UI/Loader';
 
 interface UserFormProps {

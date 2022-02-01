@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import UserForm from 'components/UserForm';
 import { useAddUserMutation } from 'store/usersService';
+// Components
+import UserForm from 'components/UserForm';
 
 const AddUserPage: FC = () => {
   const [addUser, { isLoading, error }] = useAddUserMutation();
