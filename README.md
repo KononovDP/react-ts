@@ -12,7 +12,7 @@ Runs the app in the development mode
 
 Client - [http://localhost:3000](http://localhost:3000).
 
-Server - [http://localhost:3001](http://localhost:3001).
+Server - [http://localhost:3001/users](http://localhost:3001/users).
 
 ### `npm start`
 
