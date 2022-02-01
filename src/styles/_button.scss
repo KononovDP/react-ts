@@ -1,0 +1,49 @@
+.button {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 200px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &__disabled,
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &__primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: #fff;
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background-color: $secondary;
+      border-color: $secondary;
+    }
+  }
+
+  &__secondary {
+    background-color: $secondary;
+    border-color: $secondary;
+    color: #fff;
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background-color: $primary;
+      border-color: $primary;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@import './styles/variables';
+@import './styles/button';
+@import './styles/card';
+@import './styles/form-elements';
+@import './styles/confirm-dialog';
+@import './styles/loader';
+@import './styles/header';
+@import './styles/user';
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.main {
+  padding: 50px 0;
+}
+
+.wrapper {
+  display: flex;
+
+  .sidebar {
+    flex: 0 0 300px;
+    padding-right: 40px;
+  }
+
+  .content {
+    flex: 1;
+  }
+}
+
+h1 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+
+  h1 {
+    margin-bottom: 40px;
+  }
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center; 
+}
+
+.box {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid $grey;
+  border-radius: 8px;
+}

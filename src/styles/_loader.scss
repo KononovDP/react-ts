@@ -1,0 +1,42 @@
+.loader__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,.5);
+}
+
+.loader__outer {
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width: 100px;
+  height: 100px;
+  border: 5px solid $primary;
+  border-radius: 50%;
+  border-color: $primary transparent $primary $primary;
+  animation: bigcircle 1.2s linear infinite;
+}
+
+.loader__inner {
+  position:relative;
+  width: 60px;
+  height: 60px;
+  border: 5px solid $primary;
+  border-radius: 50%;
+  border-color: $primary $primary transparent $primary;
+}
+
+@keyframes bigcircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,45 @@
+.header {
+  padding: 20px 0;
+  border-bottom: 1px solid $grey;
+
+  .button {
+    min-width: initial;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 30px;
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
+
+  &__item {
+    padding: 0 10px;
+    color: $grey;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $primary;
+    transition: color 0.3s;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: $secondary;
+    }
+  }
+}

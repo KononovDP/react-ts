@@ -1,0 +1,86 @@
+$primary: #00303f;
+$secondary: #cdac81;
+$grey-light: #f5f4f4;
+$grey: #cae4db;
+
+.form {
+  &__wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__field {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+
+  &__label {
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__input,
+  &__select {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    background-color: #fff;
+    border: 1px solid $primary;
+    border-radius: 4px;
+    box-shadow: 0 0 4px 0 rgba($primary, 0.5);
+
+    &:hover,
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &__select {
+    -o-appearance: none;
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #fff url('../assets/icons/arrow-down.svg') no-repeat right 10px center / 15px auto;
+  }
+
+  &__error {
+    margin-left: auto;
+    margin-top: 10px;
+    color: red;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+.form__field {
+  .form {
+    &__label {
+      flex: 0 0 150px;
+      margin-bottom: 0;
+      padding-right: 20px;
+    }
+  
+    &__input,
+    &__select {
+      flex: 0 0 calc(100% - 150px);
+      max-width: calc(100% - 150px);
+    }
+  
+    &__error {
+      flex: 0 0 calc(100% - 150px);
+      max-width: calc(100% - 150px);
+    }
+  }
+}
